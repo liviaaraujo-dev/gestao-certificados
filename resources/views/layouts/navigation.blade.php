@@ -16,8 +16,11 @@
                     <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
                         {{ __('Lista de certificados') }}
                     </x-nav-link>
-                      <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
+                    <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
                         {{ __('Gerar certificado') }}
+                    </x-nav-link>
+                     <x-nav-link :href="route('profile.register.student')" :active="request()->routeIs('registerStudent')">
+                        {{ __('Estudantes') }}
                     </x-nav-link>
                 </div>
             </div>
