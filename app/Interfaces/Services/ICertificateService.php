@@ -1,13 +1,15 @@
 <?php
 
-namespace App\Interfaces\Repositories;
+namespace App\Interfaces\Services;
 
 use Illuminate\Support\Collection;
+use Exception;
 
-interface ICertificateRepository{
-
+interface ICertificateService
+{
     /**
      * @return Collection
+     * @throws Exception
      */
     public function getAllCertificates(): Collection;
 
