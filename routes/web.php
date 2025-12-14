@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CertificateController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\StudentController;
 use Illuminate\Support\Facades\Route;
@@ -20,6 +21,8 @@ Route::middleware('auth')->group(function () {
     Route::get('/register-student', [StudentController::class, 'registerStudentForm'])->name('student.register');
     Route::post('/store-student', [StudentController::class, 'store'])->name('student.store');
     Route::get('/students', [StudentController::class, 'listStudents'])->name('student.students');
+
+    Route::get('/generateForm', [CertificateController::class, 'certificateForm'])->name('generateForm');
 
 
 });

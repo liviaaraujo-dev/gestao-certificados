@@ -16,7 +16,7 @@
                     <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
                         {{ __('Lista de certificados') }}
                     </x-nav-link>
-                    <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
+                    <x-nav-link :href="route('generateForm')" :active="request()->routeIs('generateForm')">
                         {{ __('Gerar certificado') }}
                     </x-nav-link>
                      <x-nav-link :href="route('student.students')" :active="request()->routeIs('students')">
