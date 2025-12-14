@@ -4,15 +4,16 @@ namespace App\Services;
 
 use App\Interfaces\Repositories\IStudentRepository;
 use App\Interfaces\Services\IStudentService;
+use Illuminate\Support\Collection;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Log;
 use App\Models\Student;
 use Exception;
-use Illuminate\Support\Collection;
-use RuntimeException;
 
 class StudentService implements IStudentService
 {
 
-    /** @var IStudentRepository  */
+    /** @var IStudentRepository  $studentRepository*/
     private IStudentRepository $studentRepository;
 
     /**
@@ -27,14 +28,21 @@ class StudentService implements IStudentService
      * @param string $name
      * @param string $cpf
      * @return Student
+     * @throws Exception
      */
     public function store(string $name, string $cpf): Student
     {
         try{
-            return $this->studentRepository->store($name, $cpf);
+            DB::beginTransaction();
+            $student = $this->studentRepository->store($name, $cpf);
+            DB::commit();
 
-        } catch (Exception $e) {
-            throw new RuntimeException('Erro ao tentar criar resposta de palavra disc: ' . $e->getMessage());
+            return $student;
+
+        } catch (Exception $exception) {
+            DB::rollBack();
+            Log::error('Erro ao salvar estudante: ' . $exception->getMessage() . ' - ' . $exception->getLine() . ' - ' . $exception->getFile());
+            throw $exception;
         }
     }
 
@@ -46,8 +54,9 @@ class StudentService implements IStudentService
     {
         try{
             return $this->studentRepository->getAllStudents();
-        }catch (Exception $e){
-            throw new RuntimeException('Erro ao tentar criar resposta de palavra disc: ' . $e->getMessage());
-        }
+
+        }catch (Exception $exception){
+            Log::error('Erro ao buscar todos os estudantes: ' . $exception->getMessage() . ' - ' . $exception->getLine() . ' - ' . $exception->getFile());
+            throw $exception;        }
     }
 }

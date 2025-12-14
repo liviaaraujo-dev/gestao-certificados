@@ -2,22 +2,35 @@
 
 namespace App\Http\Controllers;
 
-use App\Services\StudentService;
-use Illuminate\Http\Request;
+use App\Interfaces\Services\IStudentService;
+use Illuminate\Support\Facades\Log;
+use Illuminate\View\View;
+use Exception;
 
 class CertificateController extends Controller
 {
-    private StudentService $studentService;
+    /** @var IStudentService $studentService */
+    private IStudentService $studentService;
 
-    public function __construct(StudentService $studentService)
+    /** @param IStudentService $studentService */
+    public function __construct(IStudentService $studentService)
     {
         $this->studentService = $studentService;
     }
 
-    public function certificateForm()
+    /**
+     * @return View
+     */
+    public function certificateForm(): View
     {
-        $students = $this->studentService->getAllStudents();
+        try{
+            $students = $this->studentService->getAllStudents();
 
-        return view('certificates.generate-certificate', compact('students'));
+            return view('certificates.generate-certificate', compact('students'));
+
+        }catch (Exception $exception){
+            Log::error('Erro ao carregar form: '.$exception->getMessage());
+            return view('errors.500', [], 500);
+        }
     }
 }

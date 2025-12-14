@@ -8,7 +8,7 @@ use App\Models\Student;
 
 class StudentRepository implements IStudentRepository
 {
-    /** @var Student  */
+    /** @var Student $student */
     private Student $student;
 
     /**

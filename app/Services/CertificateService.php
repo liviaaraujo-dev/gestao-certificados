@@ -4,6 +4,7 @@ namespace App\Services;
 
 use App\Interfaces\Repositories\ICertificateRepository;
 use App\Interfaces\Services\ICertificateService;
+use App\Models\Certificate;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Collection;
 use Exception;
@@ -30,6 +31,22 @@ class CertificateService implements ICertificateService
 
         }catch (Exception $exception){
             Log::error('Erro ao buscar todos os certificados: ' . $exception->getMessage() . ' - ' . $exception->getLine() . ' - ' . $exception->getFile());
+            throw $exception;
+        }
+    }
+
+    /**
+     * @param int $certificateId
+     * @return Certificate
+     * @throws Exception
+     */
+    public function getCertificateById(int $certificateId): Certificate
+    {
+        try{
+            return $this->getCertificateById($certificateId);
+
+        }catch(Exception $exception){
+            Log::error('Erro ao buscar certificado: ' . $exception->getMessage() . ' - ' . $exception->getLine() . ' - ' . $exception->getFile());
             throw $exception;
         }
     }

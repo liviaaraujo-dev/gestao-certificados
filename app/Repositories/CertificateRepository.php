@@ -26,4 +26,13 @@ class CertificateRepository implements ICertificateRepository
     {
         return $this->certificate->all();
     }
+
+    /**
+     * @param int $certificateId
+     * @return Certificate
+     */
+    public function getCertificateById(int $certificateId): Certificate
+    {
+        return $this->certificate->find($certificateId);
+    }
 }
