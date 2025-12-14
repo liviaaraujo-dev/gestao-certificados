@@ -3,7 +3,6 @@
            <div class="flex justify-center flex-col items-center my-10">
         <h3 class="text-center font-bold text-2xl text-[#020817]">Certificados gerados</h3>
         <span class="text-[#64748B]">Visualize todos os certificados gerados</span>
-
     </div>
 
     <div class="flex justify-center flex-col items-center border border-[#E2E8F0] w-[50%] py-20 gap-4 rounded-md">

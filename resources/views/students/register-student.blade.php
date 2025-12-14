@@ -5,20 +5,25 @@
 
     </div>
 
-    <div class=" flex flex-col items-center mx-4 lg:m-0">
+    <div class="flex flex-col items-center mx-4 lg:m-0">
         <form action="{{ route('student.store') }}" method="POST"
             class="flex flex-col justify-center items-start border border-[#E2E8F0] p-8 gap-4 w-full lg:w-[60%] xl:w-[40%] rounded-md bg-white">
             @csrf
-            <span class="text-[#1A2856] font-bold text-lg">Novo Estudente</span>
+            <span class="text-[#1A2856] font-bold text-lg">Novo Estudante</span>
             <div class="flex flex-col w-full gap-2">
                 <label for="" class="text-[#020817] font-medium">Nome Completo</label>
-                <input type="text" name="name" id="" placeholder="Digite o nome completo do aluno"
-                    class=" w-full border border-[#E2E8F0] text-[#64748B] text-base rounded-md">
+                <input type="text" name="name"
+                       value="{{ old('name') }}"
+                       placeholder="Digite o nome completo do aluno"
+                       class="w-full border border-[#E2E8F0] text-[#64748B] text-base rounded-md">
             </div>
             <div class="flex flex-col w-full gap-2">
                 <label for="" class="text-[#020817] font-medium">CPF</label>
-                <input type="text" name="cpf" id="" placeholder="000.000.000-00"
-                    class=" w-full border border-[#E2E8F0] text-[#64748B] text-base rounded-md">
+                <input type="text" name="cpf"
+                       value="{{ old('cpf') }}"
+                       placeholder="000.000.000-00"
+                       class="w-full border border-[#E2E8F0] text-[#64748B] text-base rounded-md">
+
             </div>
             <button type="submit"
                 class="bg-gradient-to-tr from-[#1A2856] to-[#334EA9] w-full h-12 rounded-md text-white font-semibold text-base">Cadastrar</button>
@@ -44,6 +49,24 @@
             </ul>
         </div>
     @endif
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const cpfInput = document.querySelector('input[name="cpf"]');
+
+            cpfInput.addEventListener("input", function (e) {
+                let value = e.target.value.replace(/\D/g, "");
+
+                if (value.length > 11) value = value.substring(0, 11);
+
+                value = value.replace(/(\d{3})(\d)/, "$1.$2");
+                value = value.replace(/(\d{3})(\d)/, "$1.$2");
+                value = value.replace(/(\d{3})(\d{1,2})$/, "$1-$2");
+
+                e.target.value = value;
+            });
+        });
+    </script>
 
 
 </x-app-layout>

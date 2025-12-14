@@ -14,4 +14,6 @@ interface IStudentService
      */
     public function store(string $name, string $cpf): Student;
 
+    public function getAllStudents();
+
 }

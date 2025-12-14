@@ -3,6 +3,7 @@
 namespace App\Repositories;
 
 use App\Interfaces\Repositories\IStudentRepository;
+use Illuminate\Database\Eloquent\Collection;
 use App\Models\Student;
 
 class StudentRepository implements IStudentRepository
@@ -29,6 +30,14 @@ class StudentRepository implements IStudentRepository
             'name' => $name,
             'cpf' => $cpf
         ]);
+    }
+
+    /**
+     * @return Collection
+     */
+    public function getAllStudents(): Collection
+    {
+        return $this->student->all();
     }
 
 }
