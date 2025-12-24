@@ -43,7 +43,7 @@ class CertificateService implements ICertificateService
     public function getCertificateById(int $certificateId): Certificate
     {
         try{
-            return $this->getCertificateById($certificateId);
+            return $this->certificateRepository->getCertificateById($certificateId);
 
         }catch(Exception $exception){
             Log::error('Erro ao buscar certificado: ' . $exception->getMessage() . ' - ' . $exception->getLine() . ' - ' . $exception->getFile());

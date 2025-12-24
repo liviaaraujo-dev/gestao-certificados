@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Interfaces\Services\ICertificateService;
 use App\Interfaces\Services\IStudentService;
 use Illuminate\Support\Facades\Log;
 use Illuminate\View\View;
@@ -11,11 +12,18 @@ class CertificateController extends Controller
 {
     /** @var IStudentService $studentService */
     private IStudentService $studentService;
+    /** @var ICertificateService $certificateService */
+    private ICertificateService $certificateService;
 
-    /** @param IStudentService $studentService */
-    public function __construct(IStudentService $studentService)
+    /**
+     * __construct
+     * @param IStudentService $studentService
+     * @param ICertificateService $certificateService
+     */
+    public function __construct(IStudentService $studentService, ICertificateService $certificateService)
     {
         $this->studentService = $studentService;
+        $this->certificateService = $certificateService;
     }
 
     /**
@@ -32,5 +40,17 @@ class CertificateController extends Controller
             Log::error('Erro ao carregar form: '.$exception->getMessage());
             return view('errors.500', [], 500);
         }
+    }
+
+    /**
+     * @param string $certificateId
+     * @return View
+     * @throws Exception
+     */
+    public function showCertificate(string $certificateId): View
+    {
+        $certificate = $this->certificateService->getCertificateById(decrypt($certificateId));
+
+        return view('certificates.certificate', compact('certificate'));
     }
 }

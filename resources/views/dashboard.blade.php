@@ -25,8 +25,8 @@
                                 <span class="text-[#020817] font-bold text-base">{{$certificate->student->name}}</span>
                                 <span class="text-[#64748B]">{{$certificate->created_at}}</span>
                             </div>
-                            <button type="submit"
-                                    class="bg-gradient-to-tr from-[#1A2856] to-[#334EA9] px-4 h-10 rounded-md text-white font-semibold text-base">Ver</button>
+                            <a href="{{ route('certificate.show', ['certificateId' => encrypt($certificate->id)]) }}"
+                                    class="flex bg-gradient-to-tr from-[#1A2856] to-[#334EA9] px-4 h-10 rounded-md text-white font-semibold text-base">Ver</a>
                         </div>
                     </div>
                 @endforeach

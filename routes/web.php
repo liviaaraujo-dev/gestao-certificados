@@ -23,7 +23,7 @@ Route::middleware('auth')->group(function () {
 
     Route::get('/generateForm', [CertificateController::class, 'certificateForm'])->name('generateForm');
 
-
+    Route::get('/certificate/{certificateId}', [CertificateController::class, 'showCertificate'])->name('certificate.show');
 });
 
 require __DIR__.'/auth.php';
