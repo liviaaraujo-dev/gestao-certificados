@@ -1,20 +1,17 @@
 <x-app-layout>
     <style>
-            /* Altura da caixa principal */
         .select2-container .select2-selection--single {
-            height: 2.8rem; /* ajuste como quiser */
-            border-radius: 0.375rem; /* mantém o rounded-md do Tailwind */
-            border-color: #D1D5DB; /* gray-300 */
+            height: 2.8rem;
+            border-radius: 0.375rem;
+            border-color: #D1D5DB;
         }
 
-        /* Alinhamento do texto dentro */
         .select2-container--default .select2-selection--single .select2-selection__rendered {
-            line-height: 2.8rem; /* mesma altura da caixa */
+            line-height: 2.8rem;
         }
 
-        /* Altura da seta do lado direito */
         .select2-container--default .select2-selection--single .select2-selection__arrow {
-            height: 2.8rem; /* ajuste como quiser */
+            height: 2.8rem;
         }
     </style>
     <div class="flex justify-center flex-col items-center my-10">
