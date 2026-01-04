@@ -18,4 +18,10 @@ interface ICertificateRepository{
      */
     public function getCertificateById(int $certificateId): Certificate;
 
+    /**
+     * @param int $studentId
+     * @return Certificate
+     */
+    public function store(int $studentId): Certificate;
+
 }

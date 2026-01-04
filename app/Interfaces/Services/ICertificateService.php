@@ -21,4 +21,12 @@ interface ICertificateService
      */
     public function getCertificateById(int $certificateId): Certificate;
 
+    /**
+     * @param int $studentId
+     * @param array $activities
+     * @return Certificate
+     * @throws Exception
+     */
+    public function store(int $studentId,  array $activities): Certificate;
+
 }

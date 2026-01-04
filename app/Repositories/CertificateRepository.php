@@ -35,4 +35,15 @@ class CertificateRepository implements ICertificateRepository
     {
         return $this->certificate->find($certificateId);
     }
+
+    /**
+     * @param int $studentId
+     * @return Certificate
+     */
+    public function store(int $studentId): Certificate
+    {
+        return $this->certificate->create([
+            'student_id' => $studentId,
+        ]);
+    }
 }

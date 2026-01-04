@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\StoreCertificateRequest;
 use App\Interfaces\Services\ICertificateService;
 use App\Interfaces\Services\IStudentService;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Facades\Log;
 use Illuminate\View\View;
 use Exception;
@@ -52,5 +54,18 @@ class CertificateController extends Controller
         $certificate = $this->certificateService->getCertificateById(decrypt($certificateId));
 
         return view('certificates.certificate', compact('certificate'));
+    }
+
+    /**
+     * @param StoreCertificateRequest $request
+     * @return RedirectResponse
+     */
+    public function store(StoreCertificateRequest $request): RedirectResponse
+    {
+        $certificate = $this->certificateService->store($request->input('student_id'), $request->input('activities'));
+
+        return redirect()
+            ->route('certificate.show', encrypt($certificate->id))
+            ->with('success', 'Certificado cadastrado com sucesso!');
     }
 }

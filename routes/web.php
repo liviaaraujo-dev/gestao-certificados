@@ -22,8 +22,9 @@ Route::middleware('auth')->group(function () {
     Route::get('/students', [StudentController::class, 'listStudents'])->name('student.students');
 
     Route::get('/generateForm', [CertificateController::class, 'certificateForm'])->name('generateForm');
-
     Route::get('/certificate/{certificateId}', [CertificateController::class, 'showCertificate'])->name('certificate.show');
+    Route::post('/store-certificate', [CertificateController::class, 'store'])->name('certificate.store');
+
 });
 
 require __DIR__.'/auth.php';
