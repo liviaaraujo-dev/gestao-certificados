@@ -15,7 +15,7 @@ interface IStudentRepository
     public function store(string $name, string $cpf): Student;
 
     /**
-     * @return Collection
+     * @return Collection<int, Student>
      */
     public function getAllStudents(): Collection;
 

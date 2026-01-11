@@ -47,7 +47,7 @@ class StudentService implements IStudentService
     }
 
     /**
-     * @return Collection
+     * @return Collection<int , Student>
      * @throws Exception
      */
     public function getAllStudents(): Collection
@@ -57,7 +57,8 @@ class StudentService implements IStudentService
 
         }catch (Exception $exception){
             Log::error('Erro ao buscar todos os estudantes: ' . $exception->getMessage() . ' - ' . $exception->getLine() . ' - ' . $exception->getFile());
-            throw $exception;        }
+            throw $exception;
+        }
     }
 
     /**

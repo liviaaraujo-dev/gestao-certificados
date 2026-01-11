@@ -8,7 +8,7 @@ use Illuminate\Support\Collection;
 interface ICertificateRepository{
 
     /**
-     * @return Collection
+     * @return Collection<int, Certificate>
      */
     public function getAllCertificates(): Collection;
 

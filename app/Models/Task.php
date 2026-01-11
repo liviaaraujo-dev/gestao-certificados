@@ -10,7 +10,7 @@ class Task extends Model
     /** @var string $table */
     protected $table = 'tasks';
 
-    /** @var string[] $fillable */
+    /** @var list<string> $fillable */
     protected $fillable = [
         'title'
     ];

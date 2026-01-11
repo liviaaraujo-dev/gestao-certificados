@@ -11,7 +11,7 @@ class Certificate extends Model
     /** @var string $table */
     protected $table = 'certificates';
 
-    /** @var string[] $fillable */
+    /** @var list<string> $fillable */
     protected $fillable = [
         'student_id',
         'user_id_generated'

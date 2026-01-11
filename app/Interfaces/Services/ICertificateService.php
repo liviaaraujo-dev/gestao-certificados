@@ -9,7 +9,7 @@ use Exception;
 interface ICertificateService
 {
     /**
-     * @return Collection
+     * @return Collection<int, Certificate>
      * @throws Exception
      */
     public function getAllCertificates(): Collection;

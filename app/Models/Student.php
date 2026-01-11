@@ -9,7 +9,7 @@ class Student extends Model
     /** @var string $table */
     protected $table = 'students';
 
-    /** @var string[] $fillable */
+    /** @var list<string> $fillable */
     protected $fillable = [
         'name',
         'cpf'

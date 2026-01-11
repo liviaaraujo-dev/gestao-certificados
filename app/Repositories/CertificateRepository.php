@@ -20,7 +20,7 @@ class CertificateRepository implements ICertificateRepository
     }
 
     /**
-     * @return Collection
+     * @return Collection<int, Certificate>
      */
     public function getAllCertificates(): Collection
     {

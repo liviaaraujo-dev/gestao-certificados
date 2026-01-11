@@ -17,7 +17,7 @@ interface IStudentService
     public function store(string $name, string $cpf): Student;
 
     /**
-     * @return Collection
+     * @return Collection<int, Student>
      * @throws Exception
      */
     public function getAllStudents(): Collection;

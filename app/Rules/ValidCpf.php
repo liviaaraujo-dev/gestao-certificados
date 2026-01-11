@@ -34,7 +34,7 @@ class ValidCpf implements ValidationRule
             $soma = 0;
 
             for ($i = 0; $i < $t; $i++) {
-                $soma += $cpf[$i] * (($t + 1) - $i);
+                $soma += (int) $cpf[$i] * (($t + 1) - $i);
             }
 
             $digito = ((10 * $soma) % 11) % 10;

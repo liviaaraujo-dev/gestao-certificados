@@ -33,7 +33,7 @@ class StudentRepository implements IStudentRepository
     }
 
     /**
-     * @return Collection
+     * @return Collection<int, Student>
      */
     public function getAllStudents(): Collection
     {

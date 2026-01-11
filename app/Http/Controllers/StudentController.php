@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\Student\StoreStudentRequest;
 use App\Interfaces\Services\IStudentService;
 use Illuminate\Http\RedirectResponse;
+use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Log;
 use Illuminate\View\View;
 use Exception;
@@ -67,11 +68,10 @@ class StudentController extends Controller
     }
 
     /**
-     * @parm string $id
      * @param string $id
-     * @return View
+     * @return View|Response
      */
-    public function showStudent(string $id): View
+    public function showStudent(string $id): View|Response
     {
         try{
             $student = $this->studentService->getStudentById(decrypt($id));
@@ -79,7 +79,6 @@ class StudentController extends Controller
             return view('students.student', compact('student'));
         }catch (Exception $exception){
             Log::error('Erro ao buscar estudante: '.$exception->getMessage());
-            return view('errors.500', [], 500);
-        }
+            return response()->view('errors.500', [], 500);        }
     }
 }
