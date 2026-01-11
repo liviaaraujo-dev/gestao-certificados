@@ -20,6 +20,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/register-student', [StudentController::class, 'registerStudentForm'])->name('student.register');
     Route::post('/store-student', [StudentController::class, 'store'])->name('student.store');
     Route::get('/students', [StudentController::class, 'listStudents'])->name('student.students');
+    Route::get('/student/{id}', [StudentController::class, 'showStudent'])->name('student.show');
 
     Route::get('/generateForm', [CertificateController::class, 'certificateForm'])->name('generateForm');
     Route::get('/certificate/{certificateId}', [CertificateController::class, 'showCertificate'])->name('certificate.show');

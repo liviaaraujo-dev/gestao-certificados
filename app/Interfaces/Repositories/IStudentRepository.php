@@ -19,4 +19,10 @@ interface IStudentRepository
      */
     public function getAllStudents(): Collection;
 
+    /**
+     * @param int $id
+     * @return Student
+     */
+    public function getStudentById(int $id): Student;
+
 }

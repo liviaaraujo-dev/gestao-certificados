@@ -65,4 +65,21 @@ class StudentController extends Controller
             return view('errors.500', [], 500);
         }
     }
+
+    /**
+     * @parm string $id
+     * @param string $id
+     * @return View
+     */
+    public function showStudent(string $id): View
+    {
+        try{
+            $student = $this->studentService->getStudentById(decrypt($id));
+
+            return view('students.student', compact('student'));
+        }catch (Exception $exception){
+            Log::error('Erro ao buscar estudante: '.$exception->getMessage());
+            return view('errors.500', [], 500);
+        }
+    }
 }

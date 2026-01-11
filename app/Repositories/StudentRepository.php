@@ -40,4 +40,13 @@ class StudentRepository implements IStudentRepository
         return $this->student->all();
     }
 
+    /**
+     * @param int $id
+     * @return Student
+     */
+    public function getStudentById(int $id): Student
+    {
+        return $this->student->find($id);
+    }
+
 }

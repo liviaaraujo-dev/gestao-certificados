@@ -19,7 +19,7 @@
                     <x-nav-link :href="route('generateForm')" :active="request()->routeIs('generateForm')">
                         {{ __('Gerar certificado') }}
                     </x-nav-link>
-                     <x-nav-link :href="route('student.students')" :active="request()->routeIs('students')">
+                     <x-nav-link :href="route('student.students')" :active="request()->routeIs('student.students')">
                         {{ __('Estudantes') }}
                     </x-nav-link>
                 </div>
@@ -78,10 +78,10 @@
             <x-responsive-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
                 {{ __('Dashboard') }}
             </x-responsive-nav-link>
-            <x-responsive-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
+            <x-responsive-nav-link :href="route('generateForm')" :active="request()->routeIs('generateForm')">
                 {{ __('Gerar certificado') }}
             </x-responsive-nav-link>
-            <x-responsive-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
+            <x-responsive-nav-link :href="route('student.students')" :active="request()->routeIs('students')">
                 {{ __('Estudantes') }}
             </x-responsive-nav-link>
         </div>

@@ -59,4 +59,20 @@ class StudentService implements IStudentService
             Log::error('Erro ao buscar todos os estudantes: ' . $exception->getMessage() . ' - ' . $exception->getLine() . ' - ' . $exception->getFile());
             throw $exception;        }
     }
+
+    /**
+     * @param int $id
+     * @return Student
+     * @throws Exception
+     */
+    public function getStudentById(int $id): Student
+    {
+        try{
+            return $this->studentRepository->getStudentById($id);
+
+        }catch (Exception $exception){
+            Log::error('Erro ao buscar todos os estudantes: ' . $exception->getMessage() . ' - ' . $exception->getLine() . ' - ' . $exception->getFile());
+            throw $exception;
+        }
+    }
 }
