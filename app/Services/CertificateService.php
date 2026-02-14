@@ -61,7 +61,7 @@ class CertificateService implements ICertificateService
 
     /**
      * @param int $studentId
-     * @param array $activities
+     * @param array<string> $activities
      * @return Certificate
      * @throws Exception
      */

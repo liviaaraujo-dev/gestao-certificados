@@ -6,6 +6,7 @@ use App\Http\Requests\StoreCertificateRequest;
 use App\Interfaces\Services\ICertificateService;
 use App\Interfaces\Services\IStudentService;
 use Illuminate\Http\RedirectResponse;
+use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Log;
 use Illuminate\View\View;
 use Exception;
@@ -29,9 +30,9 @@ class CertificateController extends Controller
     }
 
     /**
-     * @return View
+     * @return View|Response
      */
-    public function certificateForm(): View
+    public function certificateForm(): View|Response
     {
         try{
             $students = $this->studentService->getAllStudents();
@@ -40,7 +41,7 @@ class CertificateController extends Controller
 
         }catch (Exception $exception){
             Log::error('Erro ao carregar form: '.$exception->getMessage());
-            return view('errors.500', [], 500);
+            return response()->view('errors.500', [], 500);
         }
     }
 
@@ -59,6 +60,7 @@ class CertificateController extends Controller
     /**
      * @param StoreCertificateRequest $request
      * @return RedirectResponse
+     * @throws Exception
      */
     public function store(StoreCertificateRequest $request): RedirectResponse
     {

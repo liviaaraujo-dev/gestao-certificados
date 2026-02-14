@@ -33,7 +33,7 @@ class DashboardController extends Controller
 
        }catch (Exception $exception){
            Log::error('Erro ao carregar dashboard: '.$exception->getMessage());
-           return view('errors.500', [], 500);
+           return view('errors.500',500);
        }
     }
 }

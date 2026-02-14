@@ -16,7 +16,7 @@ class Task extends Model
     ];
 
     /**
-     * @return BelongsToMany
+     * @return BelongsToMany<Certificate, $this>
      */
     public function certificates(): BelongsToMany
     {

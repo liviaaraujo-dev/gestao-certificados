@@ -33,7 +33,10 @@ class StoreStudentRequest extends FormRequest
         ];
     }
 
-    public function messages()
+    /**
+     * @return array<string, string>
+     */
+    public function messages(): array
     {
         return [
             'name.required' => 'O nome do estudante é obrigatório.',

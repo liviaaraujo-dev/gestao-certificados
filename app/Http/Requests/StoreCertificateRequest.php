@@ -31,7 +31,7 @@ class StoreCertificateRequest extends FormRequest
 
     /**
      * Optional: Custom error messages
-     * @return array
+     * @return array<string, string>
      */
     public function messages(): array
     {

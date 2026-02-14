@@ -18,7 +18,7 @@ class Certificate extends Model
     ];
 
     /**
-     * @return BelongsTo
+     * @return BelongsTo<Student, $this>
      */
     public function student(): BelongsTo
     {
@@ -26,7 +26,7 @@ class Certificate extends Model
     }
 
     /**
-     * @return BelongsToMany
+     * @return BelongsToMany<Task, $this>
      */
     public function tasks(): BelongsToMany
     {
