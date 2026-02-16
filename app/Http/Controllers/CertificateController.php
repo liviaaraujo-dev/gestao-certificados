@@ -2,12 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\StoreCertificateRequest;
 use App\Interfaces\Services\ICertificateService;
+use App\Http\Requests\StoreCertificateRequest;
 use App\Interfaces\Services\IStudentService;
 use Illuminate\Http\RedirectResponse;
-use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Log;
+use Illuminate\Http\Response;
 use Illuminate\View\View;
 use Exception;
 

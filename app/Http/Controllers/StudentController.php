@@ -5,15 +5,15 @@ namespace App\Http\Controllers;
 use App\Http\Requests\Student\StoreStudentRequest;
 use App\Interfaces\Services\IStudentService;
 use Illuminate\Http\RedirectResponse;
-use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Log;
+use Illuminate\Http\Response;
 use Illuminate\View\View;
 use Exception;
 
 class StudentController extends Controller
 {
 
-    /** @var IStudentService  */
+    /** @var IStudentService  $studentService */
     private IStudentService $studentService;
 
     public function __construct(IStudentService $studentService)
