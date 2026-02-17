@@ -84,11 +84,6 @@ class CertificateController extends Controller
             'certificate' => $certificate
         ])->setPaper('a4', 'landscape');
 
-        $fileName = 'Certificado ' . $certificate->student->name . '.pdf';
-
-       // return view('certificates.pdf', compact('certificate'));
-
-        
         return $pdf->stream(
             'Certificado '.$certificate->student->name.'.pdf',
             ['Attachment' => false]

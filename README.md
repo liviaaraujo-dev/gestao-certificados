@@ -1,64 +1,216 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# 🎓 Gestão de Certificados
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+[![Laravel](https://img.shields.io/badge/Laravel-12.x-red)]()
+[![PHP](https://img.shields.io/badge/PHP-8.x-blue)]()
+[![Docker](https://img.shields.io/badge/Docker-Containerized-2496ED)]()
+[![MySQL](https://img.shields.io/badge/MySQL-Database-orange)]()
+[![TailwindCSS](https://img.shields.io/badge/TailwindCSS-UI-38B2AC)]()
+[![Larastan](https://img.shields.io/badge/Larastan-Static%20Analysis-green)]()
 
-## About Laravel
+Sistema web para **gestão de certificados digitais**, com funcionalidades de geração, listagem, visualização (preview) e download de certificados em PDF.
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+A aplicação foi desenvolvida com Laravel e totalmente containerizada com Docker, garantindo fácil instalação e padronização do ambiente de desenvolvimento.
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+---
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+## 📸 Visão Geral
 
-## Learning Laravel
+---
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework. You can also check out [Laravel Learn](https://laravel.com/learn), where you will be guided through building a modern Laravel application.
+## 🚀 Tecnologias Utilizadas
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+* **Laravel** (Framework PHP)
+* **PHP 8+**
+* **MySQL**
+* **Docker & Docker Compose**
+* **Tailwind CSS**
+* **Larastan (PHPStan para Laravel)**
 
-## Laravel Sponsors
+---
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+## ✨ Funcionalidades
 
-### Premium Partners
+* 🎓 Geração de certificados
+* 👁️ Preview do certificado antes do download
+* 📄 Exportação em PDF
+* 📋 Listagem de certificados
+* 🔍 Análise estática de código com Larastan
+* 🐳 Ambiente totalmente configurado com Docker
+* 🎨 Interface moderna com Tailwind CSS
 
-- **[Vehikl](https://vehikl.com)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Redberry](https://redberry.international/laravel-development)**
-- **[Active Logic](https://activelogic.com)**
+---
 
-## Contributing
+## 📦 Requisitos
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+Antes de iniciar, você precisa ter instalado:
 
-## Code of Conduct
+* Docker
+* Docker Compose
+* Git
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+> Não é necessário instalar PHP, Composer ou MySQL localmente, pois tudo roda via Docker.
 
-## Security Vulnerabilities
+---
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+## 🐳 Como Rodar o Projeto (Ambiente 100% Docker)
 
-## License
+### 1️⃣ Clonar o repositório
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+```bash
+git clone https://github.com/SEU-USUARIO/gestao-certificados.git
+cd gestao-certificados
+```
+
+---
+
+### 2️⃣ Configurar variáveis de ambiente
+
+Copie o arquivo de exemplo:
+
+```bash
+cp .env.example .env
+```
+
+Se necessário, ajuste as variáveis do banco (já preparadas para Docker):
+
+```env
+DB_CONNECTION=mysql
+DB_HOST=mysql
+DB_PORT=3306
+DB_DATABASE=certificados
+DB_USERNAME=root
+DB_PASSWORD=root
+```
+
+---
+
+### 3️⃣ Subir os containers
+
+```bash
+docker-compose up -d --build
+```
+
+Isso irá iniciar:
+
+* App Laravel (PHP)
+* MySQL
+* Node (build frontend)
+* Outros serviços definidos no docker-compose
+
+---
+
+### 4️⃣ Instalar dependências do backend
+
+```bash
+docker-compose exec app composer install
+```
+
+---
+
+### 5️⃣ Gerar a chave da aplicação
+
+```bash
+docker-compose exec app php artisan key:generate
+```
+
+---
+
+### 6️⃣ Rodar as migrations
+
+```bash
+docker-compose exec app php artisan migrate
+```
+
+---
+
+### 7️⃣ Instalar e compilar o frontend (Tailwind)
+
+```bash
+docker-compose exec app npm install
+docker-compose exec app npm run build
+```
+
+---
+
+### 8️⃣ Acessar a aplicação
+
+Abra no navegador:
+
+```
+http://localhost:8000
+```
+
+*(ou a porta configurada no docker-compose)*
+
+---
+
+## 🔍 Análise Estática com Larastan
+
+Este projeto utiliza Larastan para garantir qualidade e segurança do código.
+
+### Rodar análise estática
+
+```bash
+docker-compose exec app ./vendor/bin/phpstan analyse
+```
+
+Ou via Composer (se configurado):
+
+```bash
+docker-compose exec app composer analyse
+```
+
+### Rodar com nível mais rigoroso
+
+```bash
+docker-compose exec app ./vendor/bin/phpstan analyse --level=max
+```
+
+---
+
+## 🛠️ Comandos Úteis
+
+### Acessar o container da aplicação
+
+```bash
+docker-compose exec app bash
+```
+
+### Parar os containers
+
+```bash
+docker-compose down
+```
+
+### Rebuild completo
+
+```bash
+docker-compose up -d --build
+```
+
+### Limpar cache do Laravel
+
+```bash
+docker-compose exec app php artisan optimize:clear
+```
+
+---
+
+## 🔐 Segurança e Boas Práticas
+
+* Ambiente isolado com Docker
+* Configuração por variáveis de ambiente (.env)
+* Análise estática com Larastan
+* Padrão MVC do Laravel
+* Versionamento do banco com migrations
+* Código organizado e escalável
+
+---
+
+## 👩‍💻 Autora
+
+**Livia Araujo**
+Analista e Desenvolvedora de Sistemas
 
 
-./vendor/bin/phpstan analyse
-composer require larastan/larastan --dev
-vendor/bin/phpstan analyse --memory-limit=1G
+---
