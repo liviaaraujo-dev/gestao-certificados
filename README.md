@@ -61,3 +61,4 @@ The Laravel framework is open-sourced software licensed under the [MIT license](
 
 ./vendor/bin/phpstan analyse
 composer require larastan/larastan --dev
+vendor/bin/phpstan analyse --memory-limit=1G

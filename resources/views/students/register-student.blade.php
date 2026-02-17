@@ -1,13 +1,13 @@
 <x-app-layout>
     <div class="flex justify-center flex-col items-center my-10">
         <h3 class="text-center font-bold text-2xl text-[#020817]">Cadastrar Estudante</h3>
-        <span class="text-[#64748B]">Preencha os dados para cadastrar o novo estudante</span>
+        <span class="text-[#64748B] px-4 text-center">Preencha os dados para cadastrar o novo estudante</span>
 
     </div>
 
     <div class="flex flex-col items-center mx-4 lg:m-0">
         <form action="{{ route('student.store') }}" method="POST"
-            class="flex flex-col justify-center items-start border border-[#E2E8F0] p-8 gap-4 w-full lg:w-[60%] xl:w-[40%] rounded-md bg-white">
+            class="flex flex-col justify-center items-start border border-[#E2E8F0] p-4 lg:p-8 gap-4 w-full lg:w-[60%] xl:w-[40%] rounded-md bg-white">
             @csrf
             <span class="text-[#1A2856] font-bold text-lg">Novo Estudante</span>
             <div class="flex flex-col w-full gap-2">

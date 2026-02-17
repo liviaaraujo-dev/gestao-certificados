@@ -11,8 +11,9 @@
                     Download
                 </button>
             </div>
-            <div id="certificado" style="background-image: url('{{ asset('Certificate_BG.png') }}')"
-                 class="w-full aspect-[16/9] bg-contain bg-no-repeat bg-center rounded-lg flex flex-col items-center justify-center px-10 py-10 rounded-md">
+           <div id="certificado"
+                style="background-image: url('{{ asset('Certificate_BG.png') }}')"
+                class="w-full aspect-[16/9] bg-cover bg-no-repeat bg-center rounded-lg flex flex-col items-center justify-center px-10 py-10">
                 <div class="flex items-start w-full">
                     <img src="{{ asset('Certificate_Ribbon.png') }}" alt="" class="absolute">
                 </div>

@@ -1,6 +1,6 @@
 <x-app-layout>
     <div class="flex flex-col items-center">
-        <div class="w-full lg:w-[60%] xl:w-[45%] flex flex-col justify-cernter items-center gap-6">
+        <div class="w-full lg:w-[60%] xl:w-[45%] flex flex-col justify-cernter items-center gap-6 px-4 lg:px-0">
             <div class="=flex items-start justify-start w-full">
                 <a href="{{ url()->previous() }}" class="text-[#64748B] font-semibold text-sm flex gap-2 items-center mt-8">
                     <i class="ph ph-arrow-left"></i>

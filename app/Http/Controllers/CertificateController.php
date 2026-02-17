@@ -5,11 +5,13 @@ namespace App\Http\Controllers;
 use App\Interfaces\Services\ICertificateService;
 use App\Http\Requests\StoreCertificateRequest;
 use App\Interfaces\Services\IStudentService;
+use App\Models\Certificate;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Http\Response;
 use Illuminate\View\View;
 use Exception;
+use Barryvdh\DomPDF\Facade\Pdf;
 
 class CertificateController extends Controller
 {
@@ -69,5 +71,27 @@ class CertificateController extends Controller
         return redirect()
             ->route('certificate.show', encrypt($certificate->id))
             ->with('success', 'Certificado cadastrado com sucesso!');
+    }
+
+    public function download(string $certificateId)
+    {
+        $certificate = Certificate::find(decrypt($certificateId));
+        
+        $certificate->load(['student', 'tasks']);
+        
+
+        $pdf = Pdf::loadView('certificates.pdf', [
+            'certificate' => $certificate
+        ])->setPaper('a4', 'landscape');
+
+        $fileName = 'Certificado ' . $certificate->student->name . '.pdf';
+
+       // return view('certificates.pdf', compact('certificate'));
+
+        
+        return $pdf->stream(
+            'Certificado '.$certificate->student->name.'.pdf',
+            ['Attachment' => false]
+        );   
     }
 }

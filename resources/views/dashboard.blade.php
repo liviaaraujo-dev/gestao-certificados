@@ -17,7 +17,7 @@
         @endempty
 
         @isset($certificates)
-            <div class="w-full lg:w-[60%] xl:w-[45%] flex flex-col justify-center items-center">
+            <div class="w-full lg:w-[60%] xl:w-[45%] flex flex-col justify-center items-center px-4 lg:px-0">
                 @foreach($certificates as $certificate)
                     <div class="flex flex-col items-center justify-center mb-2 w-full">
                         <div class="flex border border-[#E2E8F0] p-4 gap-4 rounded-md w-full justify-center items-center ">
@@ -25,7 +25,7 @@
                                 <span class="text-[#020817] font-bold text-base">{{$certificate->student->name}}</span>
                                 <span class="text-[#64748B]">Gerado em {{$certificate->created_at->format('d/m/Y')}}</span>
                             </div>
-                            <a href="{{ route('certificate.show', ['certificateId' => encrypt($certificate->id)]) }}"
+                            <a href="{{ route('certificates.download', ['certificateId' => encrypt($certificate->id)]) }}"
                                     class="flex bg-gradient-to-tr from-[#1A2856] to-[#334EA9] px-4 h-10 rounded-md text-white font-semibold text-base items-center justify-center">Ver</a>
                         </div>
                     </div>

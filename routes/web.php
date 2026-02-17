@@ -26,6 +26,10 @@ Route::middleware('auth')->group(function () {
     Route::get('/certificate/{certificateId}', [CertificateController::class, 'showCertificate'])->name('certificate.show');
     Route::post('/store-certificate', [CertificateController::class, 'store'])->name('certificate.store');
 
+
+Route::get('/certificates/{certificateId}/download', [CertificateController::class, 'download'])
+    ->name('certificates.download');
+
 });
 
 require __DIR__.'/auth.php';

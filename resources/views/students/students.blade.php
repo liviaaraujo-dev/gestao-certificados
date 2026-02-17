@@ -1,10 +1,10 @@
 <x-app-layout>
 <div class="flex flex-col items-center">
     <h3 class="text-center font-bold text-2xl text-[#020817] my-8">Estudantes</h3>
-    <div class="w-full lg:w-[60%] xl:w-[45%] flex flex-col justify-cernter items-center">
+    <div class="w-full lg:w-[60%] xl:w-[45%] flex flex-col justify-cernter items-center px-4 lg:px-0">
         @foreach($students as $student)
             <div class="flex flex-col items-center justify-center mb-2 w-full">
-                <div class="flex border border-[#E2E8F0] p-4 gap-4 rounded-md w-full ">
+                <div class="flex border border-[#E2E8F0] p-4 gap-4 rounded-md w-full">
                     <div class="flex flex-col w-full">
                         <span class="text-[#020817] font-bold text-base">{{$student->name}}</span>
                         <span class="text-[#64748B]">{{$student->created_at}}</span>
