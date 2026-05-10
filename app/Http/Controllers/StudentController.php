@@ -44,7 +44,7 @@ class StudentController extends Controller
         try{
             $student = $this->studentService->store($request['name'], $request['cpf']);
 
-            return redirect()->route('profile.register.student');
+            return redirect()->route('student.show', encrypt($student->id));
 
         }catch(Exception $exception){
             Log::error('Erro ao salvar estudante: '.$exception->getMessage());
