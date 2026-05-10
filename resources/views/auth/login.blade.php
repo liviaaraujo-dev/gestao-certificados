@@ -3,10 +3,11 @@
     <x-auth-session-status class="mb-4" :status="session('status')" />
 
     <form method="POST" action="{{ route('login') }}">
-       <div class="flex justify-center">
-            <a href="/"> 
-             <img src="{{ asset('logo.svg') }}" alt="" class="h-16">
-            </a>
+       <div class="flex-col justify-center items-center content-center mb-4">
+            <div class="flex justify-center">
+                <img src="{{ asset('logo.svg') }}" alt="" class="h-16 flex">
+            </div>
+            <h2 class="text-center font-bold text-2xl text-[#020817] mt-4">Gestão de Certificados</h2>
        </div>
         @csrf
 
