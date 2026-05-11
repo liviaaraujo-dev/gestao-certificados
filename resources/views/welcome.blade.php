@@ -89,7 +89,62 @@
         </div>
         </div>
     </section>
-
+    <section class="bg-white" style="padding: 6rem 14rem; display: flex; ">
+        <div>
+            <span class="font-bold text-3xl text-[#1A2856]">
+                Sobre a plataforma
+            </span>
+            <h2 class="mt-4 text-4xl font-black text-[#020817] leading-tight">
+                Uma solução completa para gestão de certificados
+            </h2>
+            <p class="mt-6 text-lg text-[#64748B] leading-relaxed">
+                A <strong>Gestão de Certificados</strong> foi criada para simplificar a emissão,
+                organização e controle de certificados digitais de eventos, cursos e treinamentos.
+                Tudo de forma automática, rápida e segura.
+            </p>
+            <p class="mt-4 text-lg text-[#64748B] leading-relaxed">
+                Reduza o trabalho manual, evite erros e ofereça uma experiência profissional
+                para seus participantes com poucos cliques.
+            </p>
+            <div class="mt-8 flex gap-10">
+                <div>
+                    <h3 class="text-2xl font-bold text-[#1A2856]">Simples</h3>
+                    <span class="text-sm text-[#64748B]">Interface intuitiva</span>
+                </div>
+                <div>
+                    <h3 class="text-2xl font-bold text-[#1A2856]">Rápido</h3>
+                    <span class="text-sm text-[#64748B]">Emissão em segundos</span>
+                </div>
+                <div>
+                    <h3 class="text-2xl font-bold text-[#1A2856]">Seguro</h3>
+                    <span class="text-sm text-[#64748B]">Dados protegidos</span>
+                </div>
+            </div>
+        </div>
+        <div class="bg-[#F8FAFC] border border-[#E2E8F0] rounded-xl p-10 shadow-sm">
+            <div class="flex flex-col gap-6">
+                <div class="p-4 bg-white rounded-lg border border-[#E2E8F0]">
+                    <h4 class="font-semibold text-[#1A2856]">Emissão automatizada</h4>
+                    <p class="text-sm text-[#64748B] mt-1">
+                        Gere certificados automaticamente após eventos ou listas.
+                    </p>
+                </div>
+                <div class="p-4 bg-white rounded-lg border border-[#E2E8F0]">
+                    <h4 class="font-semibold text-[#1A2856]">Gestão de participantes</h4>
+                    <p class="text-sm text-[#64748B] mt-1">
+                        Organize listas e acompanhe histórico completo.
+                    </p>
+                </div>
+                <div class="p-4 bg-white rounded-lg border border-[#E2E8F0]">
+                    <h4 class="font-semibold text-[#1A2856]">Download instantâneo</h4>
+                    <p class="text-sm text-[#64748B] mt-1">
+                        Certificados prontos em PDF com um clique.
+                    </p>
+                </div>
+            </div>
+        </div>
+        </div>
+    </section>
     <footer class="relative border-t border-[#E2E8F0] bg-white overflow-hidden" style="padding: 1rem 14rem">
         <div class="px-4 py-16">
             <div class="flex items-center gap-3">
@@ -125,4 +180,3 @@
 </body>
 
 </html>
-
